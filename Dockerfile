@@ -5,7 +5,7 @@ FROM ubuntu:23.04
 ENV DEBIAN_FRONTEND=noninteractive
 RUN echo "APT::Get::Assume-Yes \"true\";" > /etc/apt/apt.conf.d/90assumeyes
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt update && apt install -y --no-install-recommends \
     ca-certificates \
     curl \
     jq \
@@ -13,8 +13,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     iputils-ping \
     libcurl4 \
     libicu72 \
-    libunwind-13 \
-    netcat \
+    libunwind-14 \
+    netcat-traditional \
     libssl3 \
   && rm -rf /var/lib/apt/lists/*
 
