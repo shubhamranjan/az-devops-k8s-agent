@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     iputils-ping \
     libcurl4 \
     libicu72 \
-    libunwind13 \
+    libunwind-13 \
     netcat \
     libssl3 \
   && rm -rf /var/lib/apt/lists/*
