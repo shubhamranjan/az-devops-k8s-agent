@@ -12,10 +12,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     iputils-ping \
     libcurl4 \
-    libicu60 \
-    libunwind8 \
+    libicu72 \
+    libunwind13 \
     netcat \
-    libssl1.0 \
+    libssl3 \
   && rm -rf /var/lib/apt/lists/*
 
 RUN curl -LsS https://aka.ms/InstallAzureCLIDeb | bash \
