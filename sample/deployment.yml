@@ -17,7 +17,7 @@
      spec:
        containers:
        - name: azdevops
-         image: shubhamranjan/az-devops-k8s-agent:latest
+         image: ghcr.io/shubhamranjan/az-devops-k8s-agent:main
          resources:
           limits:
             cpu: 1
