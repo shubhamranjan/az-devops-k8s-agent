@@ -28,9 +28,6 @@ RUN curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | gpg --dea
 RUN apt-get update && apt-get install -y --no-install-recommends \
     kubectl
 
-# Add kaniko
-COPY --from=gcr.io/kaniko-project/executor /kaniko/executor /kaniko/executor
-
 # Can be 'linux-x64', 'linux-arm64', 'linux-arm', 'rhel.6-x64'.
 ENV TARGETARCH=linux-x64
 
