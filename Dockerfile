@@ -18,10 +18,14 @@ RUN apt update && apt install -y --no-install-recommends \
     libssl3 \
   && rm -rf /var/lib/apt/lists/*
 
-RUN curl -LsS https://aka.ms/InstallAzureCLIDeb | bash && \
-    curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg && \
+RUN curl -LsS https://aka.ms/InstallAzureCLIDeb | bash \
+  && rm -rf /var/lib/apt/lists/*
+  
+# Install kubectl
+RUN curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg && \
     echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | tee /etc/apt/sources.list.d/kubernetes.list && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get update && \
+    apt-get install -y --no-install-recommends kubectl
 
 # Can be 'linux-x64', 'linux-arm64', 'linux-arm', 'rhel.6-x64'.
 ENV TARGETARCH=linux-x64
