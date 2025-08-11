@@ -12,7 +12,7 @@ RUN apt update && apt install -y --no-install-recommends \
     git \
     iputils-ping \
     libcurl4 \
-    libicu72 \
+    libicu76 \
     libunwind-14 \
     netcat-traditional \
     libssl3 \
