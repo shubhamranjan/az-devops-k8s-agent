@@ -28,9 +28,6 @@ RUN curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.33/deb/Release.key | gpg --d
 RUN apt-get update && apt-get install -y --no-install-recommends \
     kubectl
 
-# Can be 'linux-x64', 'linux-arm64', 'linux-arm', 'rhel.6-x64'.
-ENV TARGETARCH=linux-x64
-
 WORKDIR /azp
 
 COPY ./start.sh .
