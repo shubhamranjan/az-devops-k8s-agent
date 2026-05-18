@@ -98,7 +98,12 @@ fi
 tar -xzf "$AGENT_TGZ"
 rm -f "$AGENT_TGZ"
 
+# env.sh is shipped by the Azure DevOps agent and is not strict-mode-clean
+# (uses ${!var} indirect expansion against potentially-unset names).
+# Relax -e and -u for the duration of the source, then re-enable.
+set +eu
 source ./env.sh
+set -eu
 
 print_header "3. Configuring Azure Pipelines agent..."
 
